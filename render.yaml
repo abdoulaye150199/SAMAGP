@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: yonima-cargaison
+    env: php
+    buildCommand: ''
+    startCommand: php -S 0.0.0.0:$PORT public/index.php
+    envVars:
+      - key: DOCUMENT_ROOT
+        value: /public

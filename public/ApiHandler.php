@@ -50,7 +50,7 @@ class ApiHandler {
         header('Content-Type: application/json');
         try {
             $method = $_SERVER['REQUEST_METHOD'];
-            $dbPath = __DIR__ . '/../db.json';
+            $dbPath = getenv('DATA_PATH') ? getenv('DATA_PATH') . '/db.json' : __DIR__ . '/../db.json';
             
             if (!file_exists($dbPath)) {
                 throw new Exception('Database file not found');

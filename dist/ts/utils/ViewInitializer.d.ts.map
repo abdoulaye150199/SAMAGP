@@ -1,0 +1,1 @@
+{"version":3,"file":"ViewInitializer.d.ts","sourceRoot":"","sources":["../../../src/ts/utils/ViewInitializer.ts"],"names":[],"mappings":"AAKA,qBAAa,eAAe;IACxB,OAAO,CAAC,MAAM,CAAC,QAAQ,CAAkB;IAEzC,OAAO;WAEO,WAAW,IAAI,eAAe;IAQrC,gBAAgB,IAAI,IAAI;IAY/B,OAAO,CAAC,kBAAkB;CAmE7B;AAGD,eAAO,MAAM,eAAe,iBAAgC,CAAC"}

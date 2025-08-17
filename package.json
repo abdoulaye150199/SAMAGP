@@ -1,0 +1,30 @@
+{
+  "name": "cargaison",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "start": "npm run build && php -S localhost:8000 -t public",
+    "json-server": "json-server db.json --port 3000",
+    "dev:full": "concurrently \"npm run json-server\" \"npm run start\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "cargaison",
+    "logistics"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Système de gestion de cargaisons",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}

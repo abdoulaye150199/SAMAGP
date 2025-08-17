@@ -2,8 +2,16 @@ services:
   - type: web
     name: yonima-cargaison
     env: php
-    buildCommand: ''
-    startCommand: php -S 0.0.0.0:$PORT public/index.php
+    buildCommand: |
+      mkdir -p /data
+      cp -r data/* /data/
+      npm install
+      npm run build
+    startCommand: php -S 0.0.0.0:$PORT -t public/
     envVars:
-      - key: DOCUMENT_ROOT
-        value: /public
+      - key: DATA_PATH
+        value: /data
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1

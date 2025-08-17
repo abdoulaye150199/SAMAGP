@@ -4,10 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc --watch",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist",
-    "start": "npm run build && php -S localhost:8000 -t public",
+    "postbuild": "cp -r src/views public/ && cp -r dist/* public/",
+    "start": "php -S 0.0.0.0:$PORT -t public/",
     "json-server": "json-server db.json --port 3000",
     "dev:full": "concurrently \"npm run json-server\" \"npm run start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,5 +24,8 @@
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

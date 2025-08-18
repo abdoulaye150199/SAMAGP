@@ -1,0 +1,1 @@
+console.log('PHP application - Node.js build step completed');

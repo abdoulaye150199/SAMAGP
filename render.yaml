@@ -2,8 +2,12 @@ services:
   - type: web
     name: yonima-cargaison
     env: php
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
+    buildCommand: |
+      composer install
+      npm install
+      mkdir -p /data
+      cp -r data/* /data/
+    startCommand: php -S 0.0.0.0:$PORT -t public/
     envVars:
       - key: DATA_PATH
         value: /data
@@ -11,10 +15,3 @@ services:
       name: data
       mountPath: /data
       sizeGB: 1
-    healthCheckPath: /
-    buildFilter:
-      paths:
-        - src/**/*.ts
-        - public/**/*
-        - package.json
-        - tsconfig.json

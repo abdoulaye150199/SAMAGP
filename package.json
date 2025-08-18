@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "postbuild": "cp -r src/views public/ && cp -r dist/* public/",
+    "postbuild": "mkdir -p public/dist && cp -r src/views public/ && cp -r dist/* public/dist/",
     "start": "php -S 0.0.0.0:$PORT -t public/",
     "json-server": "json-server db.json --port 3000",
     "dev:full": "concurrently \"npm run json-server\" \"npm run start\"",
@@ -20,7 +20,7 @@
   "description": "Système de gestion de cargaisons",
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3"

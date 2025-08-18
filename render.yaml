@@ -1,13 +1,8 @@
 services:
   - type: web
     name: yonima-cargaison
-    env: php
-    buildCommand: |
-      mkdir -p /data
-      cp -r data/* /data/
-      npm install
-      npm run build
-    startCommand: php -S 0.0.0.0:$PORT -t public/
+    env: docker
+    dockerfilePath: Dockerfile
     envVars:
       - key: DATA_PATH
         value: /data

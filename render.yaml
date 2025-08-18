@@ -3,14 +3,16 @@ services:
     name: yonima-cargaison
     env: php
     buildCommand: |
-      composer install
       npm install
+      npm run build
       mkdir -p /data
       cp -r data/* /data/
-    startCommand: php -S 0.0.0.0:$PORT -t public/
+    startCommand: vendor/bin/heroku-php-apache2 public/
     envVars:
       - key: DATA_PATH
         value: /data
+      - key: PORT
+        value: 8080
     disk:
       name: data
       mountPath: /data

@@ -1,6 +1,6 @@
-/vendor/
 node_modules/
-/public/dist/
+public/dist/
 .env
 *.log
 .DS_Store
+vendor/

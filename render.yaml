@@ -1,8 +1,9 @@
 services:
   - type: web
     name: yonima-cargaison
-    env: docker
-    dockerfilePath: Dockerfile
+    env: php
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
     envVars:
       - key: DATA_PATH
         value: /data
@@ -10,3 +11,10 @@ services:
       name: data
       mountPath: /data
       sizeGB: 1
+    healthCheckPath: /
+    buildFilter:
+      paths:
+        - src/**/*.ts
+        - public/**/*
+        - package.json
+        - tsconfig.json
